@@ -1,0 +1,17 @@
+<script>
+function myfunc(){
+        var xhr = new XMLHttpRequest();
+        cmd = document.getElementById("i1").value
+        xhr.open("GET","http://127.0.0.1/cgi-bin/ink.py?c=" + cmd);
+        xhr.send()
+        xhr.onreadystatechange = function (){
+        if(this.readyState == 4){
+                document.getElementById("d1").innerHTML = this.responseText;
+        }
+}
+}
+</script>
+
+<div id="d1">data is coming ....</div>
+cmd:<input id="i1" />
+<button onclick = "myfunc()">Click Me</button>

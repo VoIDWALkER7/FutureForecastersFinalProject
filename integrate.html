@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+  <title>FUTURE FORECASTERS</title>
+  <style>
+    body {
+      background-color: #f0f0f0;
+    }
+
+    #Project_name {
+      font-size: 30px;
+      text-align: right;
+      padding: 20px;
+    }
+
+    .main_body {
+      display: flex;
+      justify-content: center;
+    }
+
+    .body-center {
+      display: flex;
+      flex-wrap: wrap;
+      max-width: 1000px;
+      margin-top: 50px;
+    }
+
+    .floating-bubble {
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      background-color: rgba(0, 120, 205, 0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 10px;
+      cursor: pointer;
+      position: relative;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .floating-bubble:hover {
+      transform: scale(1.1);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+    }
+
+    .floating-bubble img {
+      width: 60%;
+      height: auto;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .bubble-content {
+      display: none;
+      position: absolute;
+      top: 120%;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: rgba(0, 123, 255, 0.8);
+      padding: 5px 10px;
+      color: #fff;
+      border-radius: 5px;
+      font-size: 14px;
+      white-space: nowrap;
+      z-index: 1;
+    }
+
+    .floating-bubble:hover .bubble-content {
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light navnav">
+      <div class="container-fluid">
+        <a class="navbar-brand" id="Project_name" href="/index.html">FUTURE FORECASTERS</a>
+      </div>
+    </nav>
+  </div>
+
+  <div class="main_body">
+    <div class="body-center">
+      <!-- Floating bubbles (modified version of cards) -->
+      <div class="floating-bubble" onclick="onBubbleClick('docker.html')">
+        <img src="https://storage.googleapis.com/static.ianlewis.org/prod/img/docker/large_v-trans.png" class="card-img-top" alt="...">
+        <div class="bubble-content">
+          <h5 class="card-title">Docker</h5>
+        </div>
+      </div>
+
+      <div class="floating-bubble" onclick="onBubbleClick('python.html')">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAACoCAMAAABt9SM9AAAA21BMVEX///9kZGQ/fa//2EX/528ybJtUVFRgYGBbW1v/42JeXl44dKS+vr5XV1f/202AgID/4VyQkJDw8PBra2uzs7P/5WnQ0NCioqJycnLk5OTd3d3//fX/42Mlcan19/k2caH/3lQRXpP/1S5qlb2VlZVsj7H/9s//3mv/6YHU3+qdnZ22trasrKzExMSetc0yd6z/1zxHgbF6enpGRkb/6KD/44f/+OS2ydyCpcZumL5WiraOrcvP2+jk6vGpwNYyMjL/8rn/7Jb/7a0AWpD/+eD/8MT/4X3/0gv/3GGO7k8dAAAKa0lEQVR4nO2cC1faSBSAJ1UnMRDCG4KCiNRWCIJoi1p1267t9v//op1HQmaSm/BQBE/vd86egzBMhi93bubVJQRBEARBEARBEARBEARBEARBEARBEARBEARBEARBEARBEARBEGSnKOf9bTfhnVCuTqlT2nYrVDoXs8vbu7Mrxv3Z7ben2cW2WzRnapmGuTuyHr59aI85HwLYy3b7bLbtdklc09gdWQ9X7bkllXH7w+O228bZJVlPbcgUJ5c73YXg2iFZD20RRONkcOUYpw/bbt9OybpnWtqXj4/f4gGWE7S33b6dksUcjUVnexoDrnLtpy20qVxW/3ojWcNp03bd8j8tdv1/ymCRRx5Q8uUYcJU7udp4K+OM3Ou6+vebRVarzzwZDUKqJizrgik6ky+vAFcsa71BKxU6JWqZ1nZk1Zksb9AkpFRKlzWWL9uQq9xp5w2aGVGmhmFsVZbvecMsWd/4q9sx5OrkrWU525bVGjbKGbI+jM9ms3vY1V8nq09cl7gZsvj8BkxYJ3+VrBbL7eUG8fOknykLehAKVwd/kayFXChpfcwn0DmtEx6gLIWL+zOdK90Vysricqx2QpQl6YCQyxPN1aqyynW/1LSpYzf7o+Sn9VI+8QXB/HXL4rJG6ru6LK/O8OCLswGS4VBqun4rrX3eqOEalFIjo0yM2e2HdgoxV1zWfvGQU/z8fUG1nfyUWjb7bRzTog3t0/rAsZyErAF1HGrK19eOY4nvWg6DDuS7kazy0KWOxXCcQfJ51WIXl9c2bcdIXIiXGFhO2D5WplIHysR5ANZjkg/Cg4NQ1uf9gFrta5aqBrWCdgQNsgz1J12zN63Eb2jYrGBFvqaGit3QZXluKIN/SOOBW6KBheDalXj41ZvUlq0L7+cSK/u3Gat9uVhc6bL2a8V0W3nZFIs2S40G6w6iOVSxJSYymbJikaXK6ksZJo8r+VPpUK2mYwRXn5ZcyxEldJ3lKX/XopW+7zfc4LbazUWu0sJKH7kfgJFV20+rtuSI+10KQ7tVscV9XkWW53kyZ+U9jpKzjCkPGJu6w3prVJIRSJVe1DF4IceVb7VkCdWWz1Vb5jC8eUN5M61BpqvZEnGlBJYqi7mqFb+nuOI/0mmoTwOXa7CjSF8si6Q+DUUYOH7wU70gK0ZlKqYupy5c0HkOr4h7oMZi2UiEfpLl4mruKpLFVdWODw/harkJe6i/V9Eb/DJZpvq4EKWUygaWdiVGS8SWndE8WYddhX+PYLY4t2uu5rJCV91nsF7IhLi95jSryNKy7KkWAnlLrdoTVes/W5QInxEEKECqoo6sHH+/oqtQVqCKDSBuwHpBE00RWl5WkSVlmW7sayJB0+CPqal3SkFF7WWQrI4IvilJpZOSsVJdHZwSJqsWuSoegxWDJobJu7uurHgADERCl/cBCixCRurFwRLiXmY8Dx9SemGqq4N7QopC1bFQVSzuHUEVgyY8R83DrypLqHBaURVOIlM7StYCZZXMbFmXsCxw0CAD64k8H0ZhxSicQxXDJhy1H76qrJYTyYo/GlUXQZG1ZN2t6Ir3wh/H0pVQVewWfkIVwyZEMrFGWUXWlOVFssSyPZCoh8pwYS1ZKyasg38fyNdi1AWZq27hC1QxbEJkFtvPKvJyWXVLuYiCeJ8N/efXXlUWlN+zXM1YetdUMVl/oIphE74dtXdjskYWWLEsEgwv1pEFPQznmuI98OA098g6YTHmqjCBaoZNVIUsN6vIy2VVLaWvK8hRpxFde0VZj0lZ3FT7NHd2d3f3UeeSn2f7UZxn9q50VehBNcMmxMgwHMpsTJad+EpU1QtkgdsT7ftZ2gLfc013VeBMoLFDliwjq8h7iizmShwLOUry/H0/GVY8st6VrEp07ZfKYn2Q5aXnH2IYpcEEzV9orvZWkFVVp3CbTfCxSXxYJEiYr5HgWVyxHvjjsLYfQxuzK12QudpbIWf5b5HgW9qkKkKMW19v6MBcPRCyn1ClTJvjYcVY4WnYF+OsQVaR1xqUxmfaesStJeted5W7I+QLGFa1lLBifIIqhk2IqWrYQzYli4j1LivRJBHWL5nu3OpnGtoX5Pxw6S4oVO1NfkAVwybEIkjQ3s3JUlcgYt8zHOXaq8pSz0LyERZRdiNiYQV2QS7rF1QxaEJkjbC9crUyMSt5BVlikTG55Enjs4dVZV1oB4tObsnR4ZJhFbqCH4awLHHLw/YSOLW8gizZD41Yibq61LyWrCjDiznOJXk+Xj6zy8ACUxYoq6P1QrmSQuPj39eQJdYXnNgYvmkqC8/rybpTXHFZ58dQFyymutqbfAfrpcDAsG8ro6zYo3FOTBZgfbEseR/00BJ9U1/SXllWsGGRg2TpYZXI7EEvhOsVQWRqtvLa0l+44RLbwPctQ5fFl851NUvIElXbfeXzshg3zAdf68mSW2E5QNbCzC4DC1zNCnferUqkyxdvWcpgUe5pOUpsDU05H1JkCXtUfbQtIUt+S9kxLZtaUK8ri2+y5gBZizN7RnqPjilY1qDulcutqiE02GpCD2a2tiOKeKNSsImuyerIpXMlAS0jS27yWk35tbK4UWa8c68ui5yN57IO5rKWCyvmCt4IC2RVHHEcgR9UsKU6faOpHBxTsEUR8YcV74akLntrZZBvrSCLDGQgO9OSa4ura9deVxa5bycia8mwSnsUhq0ZeVM6P+cS20QWdFxH/dxyKnnxhFdlsWe+DEoaO0WTLSv8WnCKxqbaiG5tWeRbu30iV0YDWZqreVQFfiJTk15KwiLRQ6zV5yHDsC1aAs6c1ZvUshmW5VC36slpsBnb6fRNx7JsJ5DVpIz4+My7Zm9e6+fRhhVet8kqd2xfH6KI0vEBscsrjg/PEnRmt3cfP559vH/ismqhKxFV+58/f/4E8vsm43SW8sRvVfslt+/XU1YUy6Nqw/fz4em9OiCLn+/LV6vLnDWL1+0P+gN/lHIy8KWcH+pdEN4VXAw88VsCIWs3j9cmONd3ULsFcOa3mLVl8YUUM/uU1M7AZWmZnaUmRm/OfyljhRhry+Irz8Cm305yXsxYjckaWMVYWxZfdQIW0HeS82L2VHDjsvjz22ktLrcLnHdTwor1xMlbyDKhpYgdhckCw2ry6+vXL73NyxKDy0UDw13hvAuO2XtiSPVlsnFZvBe+l/wuZSWyVTCtOeptWpZYxsk+MbxDPBfAdfZgU6KXun4VZz1ZQ/G19xJYhBS60LS5Kz577mVMnXXWkeW5VnwVZ8f5WYAGDBOxFNNlgbXk9GdlWV5erlA478gVIcUCuMj36efNZLI3+b1kLavIqucbbrCcZdKsQ/u7x1F3L7lwJVZk2H/gKT+IVWRdh/+MzaYp/0+AHeZ3by/pSoxLwc1nkIbpmMvKEotupkUr/rtTxTj/05sAqn5n/evCBK0BXVJWnlLa7Oc3tOi0eb7eFHqTSWiMrzr8+bncAEtlyUDpeO9kepPO0a+b33/42szepy8/11wCRBAEQRAEQRAEQRAEQRAEQRAEQRAEQRAEQRAEQRAEQRAEQRAEQRAEQRAEQRAEQRAE+Tv5H8+lQypGJHK1AAAAAElFTkSuQmCC" class="card-img-top" alt="...">
+        <div class="bubble-content">
+          <h5 class="card-title">Python</h5>
+        </div>
+      </div>
+
+      <div class="floating-bubble" onclick="onBubbleClick('#')">
+        <img src='https://www.learntek.org/blog/wp-content/uploads/2018/05/jenkins_image.png' class="card-img-top" alt="...">
+        <div class="bubble-content">
+          <h5 class="card-title">Jenkins</h5>
+        </div>
+      </div>
+
+      <div class="floating-bubble" onclick="onBubbleClick('genai.html')">
+        <img src="https://brainwareuniversity.ac.in/blog/wp-content/uploads/2020/12/ai-1.png" class="card-img-top" alt="...">
+        <div class="bubble-content">
+          <h5 class="card-title">AI</h5>
+        </div>
+      </div>
+     <div class="floating-bubble" onclick = 'myfunc()'>
+	     <img src='https://img-c.udemycdn.com/course/750x422/3103562_ed20.jpg' class='card-img-top' alt="..."/>
+	     <div class="bubble-content">
+		     <h5 class="card-title">Tkinter Fire</h5>
+	    </div>
+
+
+     </div>
+	
+     <div class="floating-bubble" onclick="onBubbleClick('linux.html')">
+	     <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdvcsBEQTM6M8UZUWn9nIIjdvjblVpsbmQV_yoTS0GJ2reCZj8ngRMjnfavNCxAsirAQ&usqp=CAU' class='card-img-top' alt="...">
+	     <div class="bubble-content">
+		     <h5 class='card-title'>Linux</h5>
+    </div>
+  </div>
+
+  <script>
+    function onBubbleClick(link) {
+      if (link.startsWith('#')) {
+        // Do something when the bubble with '#' is clicked
+      } else {
+        window.location.href = link; // Redirect to the specified link
+      }
+    }
+   
+	function myfunc(){
+        	var xhr = new XMLHttpRequest();
+        	cmd = "python /home/voidwalker/gprr/r.py"
+        	xhr.open("GET","http://127.0.0.1/cgi-bin/tt.py?c=" + cmd);
+        	xhr.send()
+        	xhr.onreadystatechange = function (){
+        	if(this.readyState == 4){
+                	document.getElementById("d1").innerHTML = this.responseText;
+        	}
+	}
+	}
+  </script>
+
+</body>
+
+</html>
+
